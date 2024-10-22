@@ -1,3 +1,25 @@
+# Terraform
+
+- [Terraform](#terraform)
+- [Download Terraform](#download-terraform)
+  - [Add Terraform Extension to VSCode](#add-terraform-extension-to-vscode)
+- [Create new repo: tech264-terraform](#create-new-repo-tech264-terraform)
+- [Research Terraform](#research-terraform)
+  - [What is Terraform? What is it used for?](#what-is-terraform-what-is-it-used-for)
+  - [Why use Terraform? The benefits?](#why-use-terraform-the-benefits)
+  - [Alternatives to Terraform](#alternatives-to-terraform)
+  - [Who is using Terraform in the industry?](#who-is-using-terraform-in-the-industry)
+  - [In IaC, what is orchestration? How does Terraform act as an "orchestrator"?](#in-iac-what-is-orchestration-how-does-terraform-act-as-an-orchestrator)
+  - [Best practice for supplying AWS credentials to Terraform](#best-practice-for-supplying-aws-credentials-to-terraform)
+  - [Order in which Terraform looks up AWS credentials](#order-in-which-terraform-looks-up-aws-credentials)
+  - [What is the best practice to supply AWS credentials?](#what-is-the-best-practice-to-supply-aws-credentials)
+  - [How AWS credentials should never be passed to Terraform:](#how-aws-credentials-should-never-be-passed-to-terraform)
+  - [Why use Terraform for different environments (e.g. production, testing, etc.)?](#why-use-terraform-for-different-environments-eg-production-testing-etc)
+- [Setup environment variables to supply values of AWS access keys](#setup-environment-variables-to-supply-values-of-aws-access-keys)
+  - [Test you can access the values set above](#test-you-can-access-the-values-set-above)
+
+
+
 # Download Terraform
 * Download from internet.
 Source: https://developer.hashicorp.com/terraform/install
