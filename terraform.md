@@ -26,9 +26,11 @@
 Source: https://developer.hashicorp.com/terraform/install
 * Un-zip Terraform file and move it to a location you will remember so you can copy the path later on. 
   * e.g., Program files > my-cmd-line-tools > terraform.
-* Put it into windows environment variables. 
+* You can change the environment variables through windows system properties. 
 
   * Windows Search Terminal > Control Panel > System and Security > System > Advanced System Settings. 
+
+> You can also find your way by searching "Edit system environment variables." in your Windows search bar. 
 
 ![system-properties](./terraform-images/system-properties.png)
 
@@ -74,8 +76,9 @@ On GitHub, create a new repo called 'tech264-terraform'.
 # Research Terraform
 ## What is Terraform? What is it used for?
 * Terraform is an `open-source Infrastructure as Code` (IaC) `tool` created by HashiCorp. 
-* It allows you to `define` and `manage` `cloud infrastructure `using a `declarative configuration language` (HCL - HashiCorp Configuration Language). 
-* Terraform is used for `provisioning` and `managing resources` like servers, databases, networking, and more, across various cloud platforms such as AWS, Azure, Google Cloud, and others.
+  * It allows you to `define` and `manage` `cloud infrastructure `using a `declarative configuration language` (HCL - HashiCorp Configuration Language). 
+* Terraform is used to `create` and `manage resources` on different cloud platforms like AWS, Azure, and Google Cloud.
+  * It makes it easier to handle things like servers, databases, and networks by writing simple code instead of doing everything manually.
 
 ## Why use Terraform? The benefits?
 * ☁️**Multi-Cloud Support**☁️: Terraform can manage infrastructure on multiple cloud platforms, which gives flexibility and avoids vendor lock-in.
