@@ -24,10 +24,54 @@
   * It allows you to `define` and `manage` `cloud infrastructure `using a `declarative configuration language` (HCL - HashiCorp Configuration Language). 
 * Terraform is used to `create` and `manage resources` on different cloud platforms like AWS, Azure, and Google Cloud.
   * It makes it easier to handle things like servers, databases, and networks by writing simple code instead of doing everything manually.
+  * It can also deploy and destroy (if we don't need it anymore).
+  * It sees infrastructure as imutable. 
+* Primarily used for orchestration. 
+  * Orchestration tools help you **manage** and **automate** the **setup and coordination** of your IT **infrastructure**. 
+
+  
+> Think of them as the conductors of an orchestra, making sure all the different parts (like servers, databases, and networks) work together smoothly.
+
+<br>
+
+### Key Benefits of HCL
+* **Human-Readable**
+  * HCL is designed to be easy to read and write, even for those who are not developers. 
+  * Its syntax is similar to JSON but more user-friendly, making it accessible to a wider audience.
+
+* **Declarative Language**
+  * HCL is declarative, meaning you describe the desired state of your infrastructure, and the tool (like Terraform) takes care of achieving that state. 
+  * This simplifies the process of managing infrastructure.
+
+* **Modularity**
+  * HCL supports modularity, allowing you to break down your infrastructure code into reusable components. 
+  * This makes it easier to manage large and complex configurations.
+
+* **Extensibility**
+  * HCL is highly extensible, allowing you to define custom modules and providers. 
+  * This flexibility makes it suitable for a wide range of use cases and environments.
+
+* **Integration with Terraform**
+  * HCL is the native language for Terraform, one of the most popular Infrastructure as Code (IaC) tools. 
+  * This tight integration ensures that you can leverage all of Terraform’s features and capabilities.
+
+* **Version Control**
+  * Because HCL is text-based, it can be easily version-controlled using tools like Git. 
+  * This allows you to track changes, collaborate with others, and roll back to previous configurations if needed.
+
+* **Error Handling and Validation**
+  * HCL includes built-in error handling and validation, helping you catch mistakes early and ensure that your configurations are correct before applying them.
+
+
+<br> 
 
 ## Why use Terraform? The benefits?
 * ☁️**Multi-Cloud Support**☁️: Terraform can manage infrastructure on multiple cloud platforms, which gives flexibility and avoids vendor lock-in.
+  * *Cloud Agnostic*: You can deploy to any cloud using the same tool because it uses different providers. 
+    * E.g., Azure is supported with Terraform becuase it's a provider you've defined. Each provider maintains their own plugins that are downloaded/associated with that provider. 
 * 📜**Declaration**📜: You define what you want, and Terraform figures out how to create or update your infrastructure.
+  * *Declarative language*: declare what you want, NOT how to do it. 
+  * Terraform takes care of how to do it. 
 * 🏗️**Infrastructure as Code**🏢 (IaC): Terraform makes it easier to version control, audit, and track changes in your infrastructure just like software code.
 * 🏧**Automation**🏧: It simplifies infrastructure provisioning and automates changes without manual intervention.
 * 🧑🏻‍💼**State Management**👨🏻‍💼: Terraform maintains a state file that keeps track of your infrastructure, ensuring smooth updates and rollbacks.
@@ -123,6 +167,8 @@ Terraform is ideal for managing multiple environments because:
 
 # Download Terraform
 * Download from internet.
+
+![alt text](image.png)
 
 Source: https://developer.hashicorp.com/terraform/install
 * Un-zip Terraform file and move it to a location you will remember so you can copy the path later on. 
