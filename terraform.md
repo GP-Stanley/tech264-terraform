@@ -19,6 +19,12 @@
 - [Create new repo: tech264-terraform](#create-new-repo-tech264-terraform)
 - [Setup environment variables to supply values of AWS access keys](#setup-environment-variables-to-supply-values-of-aws-access-keys)
   - [Test you can access the values set above](#test-you-can-access-the-values-set-above)
+- [How Terraform Works](#how-terraform-works)
+  - [Ramon's Diagram](#ramons-diagram)
+  - [Destructive Commands: apply \& destroy](#destructive-commands-apply--destroy)
+- [Setup .gitignore file](#setup-gitignore-file)
+  - [Code-Along](#code-along)
+  - [Writing Terraform Code](#writing-terraform-code)
 
 # Research Terraform
 ## What is Terraform? What is it used for?
@@ -194,7 +200,7 @@ Terraform is ideal for managing multiple environments because:
 # Download Terraform
 * Download from internet.
 
-![alt text](image.png)
+![tf-download](./terraform-images/tf-download.png)
 
 Source: https://developer.hashicorp.com/terraform/install
 * Un-zip Terraform file and move it to a location you will remember so you can copy the path later on. 
@@ -298,3 +304,94 @@ Name of env var: AWS_SECRET_ACCESS_KEY Value: get it from the csv file sent to y
 
 <br>
 
+# How Terraform Works
+## Ramon's Diagram
+
+![ramons-diagram](./terraform-images/terraform-diagram.png)
+![anjy-diagram](./terraform-images/anjy-diagram.png)
+
+> Swap for your own understanding.
+
+* We're on our local machine (local host).
+* On our local machines, we have installed Terraform.
+* Terraform is going to need code. 
+  * The usual way to start things off is in a Terraform code file: `main.tf`. 
+* `module`: all the Terraform code that's stored in a folder. You need to keep all of the files in the same folder, Terraform won't look in sub-folders.
+  * All tf code in a folder. 
+  * Inside this folder we will have a `main.tf`.
+  * Terraform will look at all this code together to know what to do.
+
+* With all this on our local machine, we need to run four commands for the usual workflow.
+  * Terraform workflow: `terraform init`: terraform is going to go into your code and look at what providers you've specified that you need. 
+    * It will then download the plugin it thinks it needs. 
+  * `terraform plan`: it will generate a plan of what it needs to do to get things into the state that you've defined in your files. 
+    * It's showing you the plan of how to achieve what you want as you're defining your code. 
+  * `terraform apply`: this can carry out the plan you've previously come up with. (if you say 'yes').
+    * You can use this command to save the plan. And then later specify that you want this plan executed. 
+    * This is called a **destructive command** because it will go and create, moduify, or destroy things to be able to carry out the plan. 
+  * `terraform destroy`: this will get rid of everything you've defined in the code. 
+
+> `terraform fmt` (for format): this will just re-format your code to the way Terraform likes it. I.e., fixes indenting. 
+
+## Destructive Commands: apply & destroy
+* They are going to go out and talk to different cloud providers, e.g., AWS, GCP, Azure, and so on. 
+* It will need the credentials to pass in order to make those changes, (we have already provided them to Terraform)
+
+<br>
+
+# Setup .gitignore file
+* Terraform keeps track of the State, saves it as it knows it after its done its commands, those **State files** contain sensitive information such as credentials used to create that state.
+* You need to know AT ALL TIMES where your Terraform commands are running from. 
+
+## Code-Along
+* We're doing this on Visual Studio Code within the tech264-terraform repo. 
+* Right click on the folder > make a new file > ".gitignore". 
+  * Go into that file.
+* `.terraform/`: this is us telling it to ignore the file. 
+* For more details, plese visit .gitignore file. 
+
+<br>
+
+## Writing Terraform Code
+For reference, see main.tf file. 
+* create an EC2 instance.
+  * Where to create - provide the provider.
+  * which region to use to create infrastructure
+  * which service/resources to create.
+  * which AMI ID ami-0c1c30571d2dae5c9 (for ubuntu 22.04 lts).
+  * what type of instance to lauch -t2.micro.
+  * add a public IP to this instance. 
+  * give a name to the service/resource we create
+
+```bash
+# aws_access_key= xxxx MUST NEVER DO THIS  
+# aws_secret_key = xxx MUST NEVER DO THIS
+# syntax often used in HCL is key = value
+
+# create an EC2 instance.
+# Where to create - provide the provider.
+
+provider "aws" {
+  # which region to use to create infrastructure
+  region = "eu-west-1"
+}
+
+# which service/resources to create.
+
+resource "aws_instance" "app_instance" {
+  # which AMI ID ami-0c1c30571d2dae5c9 (for ubuntu 22.04 lts)).
+  ami = "ami-0c1c30571d2dae5c9"
+
+  # what type of instance to lauch -t2.micro.
+  instance_type = "t2.micro"
+
+  # add a public IP to this instance. 
+  associate_public_ip_address = true
+
+  # give a name to the service/resource we create
+  tags = {
+    Name = "tech264-georgia-tf-app-instance"
+  }
+
+}
+```
