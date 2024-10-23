@@ -180,10 +180,12 @@ resource "aws_security_group" "tech264_georgia" {
 * format: `terraform fmt`
 * plan: `terraform plan`
 * apply: `terraform apply`
+* 
+![alt text](tf-instance-images/image-6.png)
 
 * Check its been created on AWS security groups
 
-![alt text](../terraform-images/aws-sg.png)
+![alt text](tf-instance-images/image.png)
 
 * destroy: `terraform destroy`
 
@@ -233,6 +235,7 @@ resource "aws_instance" "app_instance" {
 * add a variables to main.tf
 > Below are some examples.
 
+![alt text](tf-instance-images/image-7.png)
 ![alt text](../terraform-images/var-eg.png)
 
 <br> 
@@ -243,7 +246,7 @@ resource "aws_instance" "app_instance" {
   * cd > .ssh
   * paste connection key. 
 
-![alt text](../terraform-images/ssh-in.png)
+![alt text](tf-instance-images/image-9.png)
 
 <br>
 
