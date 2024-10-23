@@ -3,6 +3,7 @@
 - [Terraform](#terraform)
 - [Research Terraform](#research-terraform)
   - [What is Terraform? What is it used for?](#what-is-terraform-what-is-it-used-for)
+    - [Key Benefits of HCL](#key-benefits-of-hcl)
   - [Why use Terraform? The benefits?](#why-use-terraform-the-benefits)
   - [Alternatives to Terraform](#alternatives-to-terraform)
   - [Who is using Terraform in the industry?](#who-is-using-terraform-in-the-industry)
@@ -12,6 +13,7 @@
   - [What is the best practice to supply AWS credentials?](#what-is-the-best-practice-to-supply-aws-credentials)
   - [How AWS credentials should never be passed to Terraform:](#how-aws-credentials-should-never-be-passed-to-terraform)
   - [Why use Terraform for different environments (e.g. production, testing, etc.)?](#why-use-terraform-for-different-environments-eg-production-testing-etc)
+    - [Benefits](#benefits)
 - [Download Terraform](#download-terraform)
   - [Add Terraform Extension to VSCode](#add-terraform-extension-to-vscode)
 - [Create new repo: tech264-terraform](#create-new-repo-tech264-terraform)
@@ -66,14 +68,26 @@
 <br> 
 
 ## Why use Terraform? The benefits?
+* 👐🏻**Open-source**📂: Lisencing has changed.
+  * Can still be used for free, even comercially. 
+  * You may owe money if you create something profitable, competing products to Terraform. 
+    * As a result, Terraform cannot be used to create a competing product. If you do, you will be charged. 
+
+* 🙂**Easy to use**☮️
+
 * ☁️**Multi-Cloud Support**☁️: Terraform can manage infrastructure on multiple cloud platforms, which gives flexibility and avoids vendor lock-in.
   * *Cloud Agnostic*: You can deploy to any cloud using the same tool because it uses different providers. 
     * E.g., Azure is supported with Terraform becuase it's a provider you've defined. Each provider maintains their own plugins that are downloaded/associated with that provider. 
+  * Compatiple with many cloud providers. 
+
 * 📜**Declaration**📜: You define what you want, and Terraform figures out how to create or update your infrastructure.
   * *Declarative language*: declare what you want, NOT how to do it. 
   * Terraform takes care of how to do it. 
+
 * 🏗️**Infrastructure as Code**🏢 (IaC): Terraform makes it easier to version control, audit, and track changes in your infrastructure just like software code.
+
 * 🏧**Automation**🏧: It simplifies infrastructure provisioning and automates changes without manual intervention.
+
 * 🧑🏻‍💼**State Management**👨🏻‍💼: Terraform maintains a state file that keeps track of your infrastructure, ensuring smooth updates and rollbacks.
 
 ## Alternatives to Terraform
@@ -111,12 +125,14 @@ Orchestration in IaC refers to the process of `coordinating multiple resources a
 <br>
 
 ## Best practice for supplying AWS credentials to Terraform
-AWS credentials allow Terraform to `authenticate and interact with AWS resources`. Best practices include:
+AWS credentials allow Terraform to `authenticate and interact with AWS resources`. 
 
 * **Use IAM Roles** (especially with EC2 instances): Instead of using static credentials, assign an IAM role to the EC2 instance that Terraform runs on. 
   * Terraform can then assume that role for AWS access, which is more secure.
+  * Safest way.
 
 * **Environment Variables**: Set AWS credentials using environment variables (AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY), but avoid hardcoding them in scripts or configuration files.
+  * For local development. 
 
 * **AWS CLI or SDK credentials file**: Use the `~/.aws/`credentials file, which stores AWS credentials locally in a secure way.
 
@@ -136,7 +152,7 @@ Terraform looks for AWS credentials in the following order:
 
 <br>
 
-## What is the best practice to supply AWS credentials?
+## What is the best practice to supply AWS credentials? 
 The best practice is to `avoid hardcoding credentials` into your codebase. Instead, use:
 
 * **IAM roles**: Especially for EC2 instances or other AWS resources.
@@ -148,19 +164,29 @@ The best practice is to `avoid hardcoding credentials` into your codebase. Inste
 ## How AWS credentials should never be passed to Terraform:
 * Never hardcode credentials in Terraform configuration files (.tf files).
 * Avoid committing credentials into version control (e.g., GitHub).
+  * Including sensitive data in configuration files in s a major security risk, as it can caccidently be commited to version control. 
+ 
 
 <br>
 
 ## Why use Terraform for different environments (e.g. production, testing, etc.)?
+* Terraform makes it easy to manage multiple environments (like production, testing, and development) by allowing you to reuse the same infrastructure definitions with different configurations. 
+
+### Benefits
 Terraform is ideal for managing multiple environments because:
 
 * **Separation of Concerns**: You can define different state files and configurations for each environment (production, testing, etc.), ensuring that changes in one environment do not affect others.
 
 * **Consistency**: Using the same infrastructure code across environments ensures consistent deployment and reduces the chances of configuration drift.
+  * Most of, if not all, the depencencies should match.
+  * e.g., environment variables across the team are the same. 
+  * e.g., testing can be carried out in a consistent environment with matching dependencies to ensure that the tests in the **QA** environment run in the same in the production environment, testing resources can be easily disposed of when the tests are no longer necessary, **PROD** should only differ in scalability.
 
 * **Automation**: Terraform makes it easy to spin up environments quickly, which is especially useful for testing or staging environments.
 
 * **Workspaces and Modules**: Terraform provides workspaces and modules that help manage separate environments in a scalable and organised way.
+
+* **Version Control**: Track infrastructure changes in different environments with version control, which adds traceability and accountability.
 
 
 <br>
