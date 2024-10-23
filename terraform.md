@@ -1,9 +1,6 @@
 # Terraform
 
 - [Terraform](#terraform)
-- [Download Terraform](#download-terraform)
-  - [Add Terraform Extension to VSCode](#add-terraform-extension-to-vscode)
-- [Create new repo: tech264-terraform](#create-new-repo-tech264-terraform)
 - [Research Terraform](#research-terraform)
   - [What is Terraform? What is it used for?](#what-is-terraform-what-is-it-used-for)
   - [Why use Terraform? The benefits?](#why-use-terraform-the-benefits)
@@ -15,63 +12,11 @@
   - [What is the best practice to supply AWS credentials?](#what-is-the-best-practice-to-supply-aws-credentials)
   - [How AWS credentials should never be passed to Terraform:](#how-aws-credentials-should-never-be-passed-to-terraform)
   - [Why use Terraform for different environments (e.g. production, testing, etc.)?](#why-use-terraform-for-different-environments-eg-production-testing-etc)
+- [Download Terraform](#download-terraform)
+  - [Add Terraform Extension to VSCode](#add-terraform-extension-to-vscode)
+- [Create new repo: tech264-terraform](#create-new-repo-tech264-terraform)
 - [Setup environment variables to supply values of AWS access keys](#setup-environment-variables-to-supply-values-of-aws-access-keys)
   - [Test you can access the values set above](#test-you-can-access-the-values-set-above)
-
-
-
-# Download Terraform
-* Download from internet.
-
-Source: https://developer.hashicorp.com/terraform/install
-* Un-zip Terraform file and move it to a location you will remember so you can copy the path later on. 
-  * e.g., Program files > my-cmd-line-tools > terraform.
-* You can change the environment variables through windows system properties. 
-
-  * Windows Search Terminal > Control Panel > System and Security > System > Advanced System Settings. 
-
-> You can also find your way by searching "Edit system environment variables." in your Windows search bar. 
-
-![system-properties](./terraform-images/system-properties.png)
-
-* Click "Environment Variables"
-* Click "Path"
-* Click "Add"
-* Click "New"
-* Paste the path to your "terraform" folder (make sure you're in the folder). 
-
-![env-steps](./terraform-images/env-steps.png)
-
-* You should be able to access terraform anywhere in your GitBash window. 
-* Use the command `terraform --version` to check if it's working. 
-
-![terraform-version](./terraform-images/terraform-version.png)
-
-<br>
-
-## Add Terraform Extension to VSCode
-* Open Visual Studio Code.
-* Go to the Extensions view by clicking on the Extensions icon in the Activity Bar on the side of the window.
-* Search for “Terraform” and install the official extension by HashiCorp.
-  * Add the Terraform extension/plugin (official one by Hashicorp) to VSCode.
-
-![extensions](./terraform-images/extensions.png)
-
-![terraform-extensions](./terraform-images/terraform-extensions.png)
-
-<br>
-
-# Create new repo: tech264-terraform
-On GitHub, create a new repo called 'tech264-terraform'.
-
-1. cd path/to/your/project 
-2. git init  (If it's a new project).
-3. `git remote add origin` https://github.com/your-username/your-repo.git (Link to GitHub repo).
-4. `git add` README.md (Add the specific file). 
-5. `git commit -m` "Add myfile.txt"
-6. `git push -u origin main`  (First push). 
-
-<br> 
 
 # Research Terraform
 ## What is Terraform? What is it used for?
@@ -175,6 +120,59 @@ Terraform is ideal for managing multiple environments because:
 
 
 <br>
+
+# Download Terraform
+* Download from internet.
+
+Source: https://developer.hashicorp.com/terraform/install
+* Un-zip Terraform file and move it to a location you will remember so you can copy the path later on. 
+  * e.g., Program files > my-cmd-line-tools > terraform.
+* You can change the environment variables through windows system properties. 
+
+  * Windows Search Terminal > Control Panel > System and Security > System > Advanced System Settings. 
+
+> You can also find your way by searching "Edit system environment variables." in your Windows search bar. 
+
+![system-properties](./terraform-images/system-properties.png)
+
+* Click "Environment Variables"
+* Click "Path"
+* Click "Add"
+* Click "New"
+* Paste the path to your "terraform" folder (make sure you're in the folder). 
+
+![env-steps](./terraform-images/env-steps.png)
+
+* You should be able to access terraform anywhere in your GitBash window. 
+* Use the command `terraform --version` to check if it's working. 
+
+![terraform-version](./terraform-images/terraform-version.png)
+
+<br>
+
+## Add Terraform Extension to VSCode
+* Open Visual Studio Code.
+* Go to the Extensions view by clicking on the Extensions icon in the Activity Bar on the side of the window.
+* Search for “Terraform” and install the official extension by HashiCorp.
+  * Add the Terraform extension/plugin (official one by Hashicorp) to VSCode.
+
+![extensions](./terraform-images/extensions.png)
+
+![terraform-extensions](./terraform-images/terraform-extensions.png)
+
+<br>
+
+# Create new repo: tech264-terraform
+On GitHub, create a new repo called 'tech264-terraform'.
+
+1. cd path/to/your/project 
+2. git init  (If it's a new project).
+3. `git remote add origin` https://github.com/your-username/your-repo.git (Link to GitHub repo).
+4. `git add` README.md (Add the specific file). 
+5. `git commit -m` "Add myfile.txt"
+6. `git push -u origin main`  (First push). 
+
+<br> 
 
 # Setup environment variables to supply values of AWS access keys
 * Setup environment variables to store the AWS access keys
