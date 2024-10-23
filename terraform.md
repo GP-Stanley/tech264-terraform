@@ -22,6 +22,7 @@
 
 # Download Terraform
 * Download from internet.
+
 Source: https://developer.hashicorp.com/terraform/install
 * Un-zip Terraform file and move it to a location you will remember so you can copy the path later on. 
   * e.g., Program files > my-cmd-line-tools > terraform.
