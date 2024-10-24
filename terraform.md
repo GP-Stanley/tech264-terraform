@@ -37,6 +37,10 @@
   - [Which is better: push or pull configuration management?](#which-is-better-push-or-pull-configuration-management)
     - [Push model](#push-model)
     - [Pull model](#pull-model)
+- [Desired State vs Current State](#desired-state-vs-current-state)
+  - [Desired State](#desired-state)
+  - [Current State](#current-state)
+- [Conclusion](#conclusion)
 
 # Research Terraform
 ## What is Terraform? What is it used for?
@@ -481,3 +485,19 @@ There’s no definitive "better" model — it depends on the use case.
 
 <br>
 
+# Desired State vs Current State
+## Desired State
+* In IaC, the desired state refers to the **configuration or infrastructure that is defined in code**. 
+* This is how you want the infrastructure to look after all changes are applied. 
+  * For example, in Terraform, the desired state is defined in the .tf files (e.g., how many VMs you want, what networks they belong to, etc.).
+
+## Current State
+* This refers to the actual state of the infrastructure at any given time. 
+  * For example, if you’ve defined 3 virtual machines in your desired state but only 2 exist in reality, there is a difference between the desired and current states.
+
+Tools like Terraform use a state file (terraform.tfstate) to track the current state of the infrastructure. When you run terraform apply, it compares the current state (tracked in the state file) to the desired state (defined in code) and applies changes to align the two​.
+
+# Conclusion
+* Push-based models (like Terraform and Ansible) are well-suited for provisioning and immediate changes.
+* Pull-based models (like Puppet and Chef) are ideal for environments needing continuous configuration management and synchronization.
+* Both push and pull models have their use cases, and the choice depends on the specific infrastructure management needs.
