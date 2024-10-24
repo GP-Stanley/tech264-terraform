@@ -49,8 +49,7 @@ Steps to Create a Personal Access Token:
 
 ![alt text](../terraform-images/generate-token.png)
 
-* Make sure you copy the link as you won't see it again: 
-    `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`
+* Make sure you copy the link as you won't see it again. 
 
 ![alt text](../terraform-images/token-code.png)
 <br>

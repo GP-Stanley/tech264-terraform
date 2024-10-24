@@ -152,7 +152,7 @@ AWS credentials allow Terraform to `authenticate and interact with AWS resources
 * **Environment Variables**: Set AWS credentials using environment variables (AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY), but avoid hardcoding them in scripts or configuration files.
   * For local development. 
 
-* **AWS CLI or SDK credentials file**: Use the `~/.aws/`credentials file, which stores AWS credentials locally in a secure way.
+* **AWS CLI or SDK credentials file**: Use the `~/.aws/` credentials file, which stores AWS credentials locally in a secure way.
 
 * **Credential helper programs**: Use AWS Single Sign-On (SSO) or AWS Vault to manage and inject credentials securely.
 
@@ -478,3 +478,6 @@ There’s no definitive "better" model — it depends on the use case.
 > If you need ongoing, regular configuration updates, **pull** tools might be a better fit.
 > 
 > If you need to set up infrastructure or apply changes instantly, **push** tools are often more efficient​. 
+
+<br>
+
