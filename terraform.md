@@ -25,6 +25,20 @@
 - [Setup .gitignore file](#setup-gitignore-file)
   - [Code-Along](#code-along)
   - [Writing Terraform Code](#writing-terraform-code)
+- [Research](#research)
+  - [What is pull and push configuration management (IaC)?](#what-is-pull-and-push-configuration-management-iac)
+    - [Pull configuration management](#pull-configuration-management)
+    - [Push configuration management](#push-configuration-management)
+  - [What is pull and push configuration management (IaC)?](#what-is-pull-and-push-configuration-management-iac-1)
+    - [Pull configuration management](#pull-configuration-management-1)
+    - [Push configuration management](#push-configuration-management-1)
+  - [Which tools support push/pull?](#which-tools-support-pushpull)
+    - [Pull-based tools](#pull-based-tools)
+    - [Push-based tools](#push-based-tools)
+  - [Does Terraform use the push or pull configuration?](#does-terraform-use-the-push-or-pull-configuration)
+  - [Which is better: push or pull configuration management?](#which-is-better-push-or-pull-configuration-management)
+    - [Push model](#push-model)
+    - [Pull model](#pull-model)
 
 # Research Terraform
 ## What is Terraform? What is it used for?
@@ -395,3 +409,69 @@ resource "aws_instance" "app_instance" {
 
 }
 ```
+
+<br>
+
+# Research
+## What is pull and push configuration management (IaC)?
+### Pull configuration management 
+* In a pull model, each target machine (like a server) **pulls** its **configuration from a central server or management system**. 
+* This happens periodically, where the machines use an **agent** to **check and update** their own configurations as needed. 
+* This method is common in continuous management where machines need to **stay up-to-date** with the latest policies and configurations.
+
+* Example: Puppet and Chef use this approach. 
+  * **Agents** installed on machines **reach out to a central server** to **fetch** their latest **configurations**.
+
+### Push configuration management 
+* In a push model, the # Research
+## What is pull and push configuration management (IaC)?
+### Pull configuration management 
+* In a pull model, each target machine (like a server) pulls its configuration from a central server or management system. 
+* This happens periodically, where the machines use an agent to check and update their own configurations as needed. 
+* This method is common in continuous management where machines need to stay up-to-date with the latest policies and configurations.
+
+* Example: Puppet and Chef use this approach. Agents installed on machines reach out to a central server to fetch their latest configurations.
+
+### Push configuration management 
+* In a push model, the controlling server **pushes configurations directly to the target machines**. 
+* This is usually done over a connection like **SSH** and **does not require an agent** running on the target machines. 
+* This method is more **direct** and is often used when you need to **apply changes immediately**.
+
+* Example: Ansible, Terraform, and AWS CloudFormation use this approach. 
+  * The controlling system (like a laptop running Terraform) **pushes the infrastructure changes** to the target cloud providers or servers.
+
+<br>
+
+## Which tools support push/pull?
+### Pull-based tools
+* **Puppet and Chef**: Both use agents on machines that pull configurations periodically from a central server.
+
+### Push-based tools
+* **Ansible**: Pushes changes directly from the controlling machine to the targets over **SSH**.
+* **Terraform**: Pushes changes to cloud infrastructure via **API calls**, making it more declarative but push-based.
+* **AWS CloudFormation**: Also uses a push model when managing AWS infrastructure.
+
+<br>
+
+## Does Terraform use the push or pull configuration?
+* Terraform uses the **push** model. 
+* It **defines the desired state** of infrastructure in code and then **pushes the configuration** changes to cloud providers like AWS using their APIs. 
+* This means it **does not require an agent** on the target systems, but rather **directly interacts with APIs** to apply the changes​ PUPPETEERS.
+
+
+## Which is better: push or pull configuration management?
+There’s no definitive "better" model—it depends on the use case.
+
+<br>
+
+### Push model 
+* Is typically better for **provisioning infrastructure** and when you need **immediate application of changes**. 
+* Tools like Terraform or Ansible excel in this for cloud infrastructure or one-time setups.
+
+### Pull model 
+* Is often better for **continuous configuration management**, where systems need to **regularly check in** and **stay updated** with the latest configurations. 
+* Tools like Puppet and Chef are ideal for this.
+
+> If you need ongoing, regular configuration updates, **pull** tools might be a better fit.
+> 
+> If you need to set up infrastructure or apply changes instantly, **push** tools are often more efficient​. 
