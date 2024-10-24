@@ -23,6 +23,7 @@
   - [Ramon's Diagram](#ramons-diagram)
   - [Destructive Commands: apply \& destroy](#destructive-commands-apply--destroy)
 - [Setup .gitignore file](#setup-gitignore-file)
+    - [Commands if you've pushed your .gitignore file](#commands-if-youve-pushed-your-gitignore-file)
   - [Code-Along](#code-along)
   - [Writing Terraform Code](#writing-terraform-code)
 - [Research](#research)
@@ -342,7 +343,7 @@ Name of env var: AWS_SECRET_ACCESS_KEY Value: get it from the csv file sent to y
     * It's showing you the plan of how to achieve what you want as you're defining your code. 
   * `terraform apply`: this can carry out the plan you've previously come up with. (if you say 'yes').
     * You can use this command to save the plan. And then later specify that you want this plan executed. 
-    * This is called a **destructive command** because it will go and create, moduify, or destroy things to be able to carry out the plan. 
+    * This is called a **destructive command** because it will go and create, modify, or destroy things to be able to carry out the plan. 
   * `terraform destroy`: this will get rid of everything you've defined in the code. 
 
 > `terraform fmt` (for format): this will just re-format your code to the way Terraform likes it. I.e., fixes indenting. 
@@ -356,6 +357,14 @@ Name of env var: AWS_SECRET_ACCESS_KEY Value: get it from the csv file sent to y
 # Setup .gitignore file
 * Terraform keeps track of the State, saves it as it knows it after its done its commands, those **State files** contain sensitive information such as credentials used to create that state.
 * You need to know AT ALL TIMES where your Terraform commands are running from. 
+
+### Commands if you've pushed your .gitignore file
+* `git filter-branch`This command is used to rewrite the history of your Git repository. You can use it to remove files from all previous commits. 
+  * For example, if you accidentally committed sensitive files, git filter-branch can help you remove them from the entire history.
+* `git rm --cached .gitignore`: This command removes the .gitignore file from the staging area (index) but keeps it in your working directory. 
+  * This means Git will stop tracking the .gitignore file itself, but it will still be present on your filesystem23.
+
+<br>
 
 ## Code-Along
 * We're doing this on Visual Studio Code within the tech264-terraform repo. 
