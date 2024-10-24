@@ -30,9 +30,6 @@
   - [What is pull and push configuration management (IaC)?](#what-is-pull-and-push-configuration-management-iac)
     - [Pull configuration management](#pull-configuration-management)
     - [Push configuration management](#push-configuration-management)
-  - [What is pull and push configuration management (IaC)?](#what-is-pull-and-push-configuration-management-iac-1)
-    - [Pull configuration management](#pull-configuration-management-1)
-    - [Push configuration management](#push-configuration-management-1)
   - [Which tools support push/pull?](#which-tools-support-pushpull)
     - [Pull-based tools](#pull-based-tools)
     - [Push-based tools](#push-based-tools)
@@ -422,6 +419,7 @@ resource "aws_instance" "app_instance" {
 <br>
 
 # Research
+
 ## What is pull and push configuration management (IaC)?
 ### Pull configuration management 
 * In a pull model, each target machine (like a server) **pulls** its **configuration from a central server or management system**. 
@@ -431,15 +429,7 @@ resource "aws_instance" "app_instance" {
 * Example: Puppet and Chef use this approach. 
   * **Agents** installed on machines **reach out to a central server** to **fetch** their latest **configurations**.
 
-### Push configuration management 
-* In a push model, the # Research
-## What is pull and push configuration management (IaC)?
-### Pull configuration management 
-* In a pull model, each target machine (like a server) pulls its configuration from a central server or management system. 
-* This happens periodically, where the machines use an agent to check and update their own configurations as needed. 
-* This method is common in continuous management where machines need to stay up-to-date with the latest policies and configurations.
-
-* Example: Puppet and Chef use this approach. Agents installed on machines reach out to a central server to fetch their latest configurations.
+<br>
 
 ### Push configuration management 
 * In a push model, the controlling server **pushes configurations directly to the target machines**. 
@@ -448,6 +438,10 @@ resource "aws_instance" "app_instance" {
 
 * Example: Ansible, Terraform, and AWS CloudFormation use this approach. 
   * The controlling system (like a laptop running Terraform) **pushes the infrastructure changes** to the target cloud providers or servers.
+
+<br>
+
+![push-pull](./terraform-images/pull-push.png)
 
 <br>
 
@@ -469,7 +463,7 @@ resource "aws_instance" "app_instance" {
 
 
 ## Which is better: push or pull configuration management?
-There’s no definitive "better" model—it depends on the use case.
+There’s no definitive "better" model — it depends on the use case.
 
 <br>
 
