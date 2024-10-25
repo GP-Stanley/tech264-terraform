@@ -41,6 +41,7 @@
   - [Desired State](#desired-state)
   - [Current State](#current-state)
 - [Conclusion](#conclusion)
+- [Task: Setup your repo to use Azure blob storage for state file management](#task-setup-your-repo-to-use-azure-blob-storage-for-state-file-management)
 
 # Research Terraform
 ## What is Terraform? What is it used for?
@@ -501,3 +502,17 @@ Tools like Terraform use a state file (terraform.tfstate) to track the current s
 * Push-based models (like Terraform and Ansible) are well-suited for provisioning and immediate changes.
 * Pull-based models (like Puppet and Chef) are ideal for environments needing continuous configuration management and synchronization.
 * Both push and pull models have their use cases, and the choice depends on the specific infrastructure management needs.
+
+<br>
+
+# Task: Setup your repo to use Azure blob storage for state file management
+* Use a Terraform folder for the backend setup
+* Use a Terraform separate folder for the main architecture (to deploy the app) which uses the backend setup for state file management
+
+Deliverables:
+* In the one Teams message in the main chat, paste links:
+  * to your app running which was deployed by Terraform using remote state file management on Azure.
+  * a link to where your state files are stored in blob storage on the Azure portal (NOT the URL to the state files as they should NEVER be made public).
+* Link to your documentation pasted into the main chat around COB.
+
+<br>
