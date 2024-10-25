@@ -42,6 +42,11 @@
   - [Current State](#current-state)
 - [Conclusion](#conclusion)
 - [Task: Setup your repo to use Azure blob storage for state file management](#task-setup-your-repo-to-use-azure-blob-storage-for-state-file-management)
+- [Step 1: Create a Storage Account and Container in Azure](#step-1-create-a-storage-account-and-container-in-azure)
+- [Step 2: Configure Terraform Backend](#step-2-configure-terraform-backend)
+- [Step 3: Setup Main Architecture](#step-3-setup-main-architecture)
+- [Step 4: Verify and Share Links](#step-4-verify-and-share-links)
+- [Step 5: Documentation](#step-5-documentation)
 
 # Research Terraform
 ## What is Terraform? What is it used for?
@@ -516,3 +521,28 @@ Deliverables:
 * Link to your documentation pasted into the main chat around COB.
 
 <br>
+
+# Step 1: Create a Storage Account and Container in Azure
+1. Login to Azure.
+2. Create a Resource Group.
+3. Create a Storage Account.
+4. Create a Blob Container.
+
+# Step 2: Configure Terraform Backend
+1. Create a backend.tf file in a separate folder (e.g., terraform-backend).
+2. Initialise the Backend.
+
+# Step 3: Setup Main Architecture
+1. Create a new folder for your main architecture (e.g., terraform-main).
+2. Create your Terraform configuration files (e.g., main.tf, variables.tf, etc.) in this folder.
+3. Reference the Backend Configuration.
+4. Initialise and Apply.
+
+# Step 4: Verify and Share Links
+1. Verify your app is running and accessible.
+2. Get the link to your state files in the Azure portal.
+3. Share the Links.
+
+# Step 5: Documentation
+* Document your process and any configurations.
+* Share the documentation link in the main chat by COB.
