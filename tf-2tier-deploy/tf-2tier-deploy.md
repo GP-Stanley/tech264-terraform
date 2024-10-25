@@ -48,7 +48,7 @@ Table of Contents
 - [Can you SSH into the App?](#can-you-ssh-into-the-app)
   - [Can you get onto the app page? ✅](#can-you-get-onto-the-app-page-)
   - [Can you get to the posts page?](#can-you-get-to-the-posts-page)
-- [Task: Setup your repo to use Azure blob storage for state file management](#task-setup-your-repo-to-use-azure-blob-storage-for-state-file-management)
+- [Resources Created in main.tf file](#resources-created-in-maintf-file)
 
 <br>
 
@@ -805,12 +805,17 @@ This setup ensures that the specified network security group is applied to the n
 
 <br>
 
-# Task: Setup your repo to use Azure blob storage for state file management
-* Use a Terraform folder for the backend setup
-* Use a Terraform separate folder for the main architecture (to deploy the app) which uses the backend setup for state file management
+# Resources Created in main.tf file
+These resources ensure secure and organised network infrastructure for deploying applications and databases on Azure.
 
-Deliverables:
-* In the one Teams message in the main chat, paste links:
-  * to your app running which was deployed by Terraform using remote state file management on Azure
-  * a link to where your state files are stored in blob storage on the Azure portal (NOT the URL to the state files as they should NEVER be made public)
-* Link to your documentation pasted into the main chat around COB
+* **Virtual Network** (VNet): Defines a virtual network named tech264_georgia_vnet with an address space of 10.0.0.0/16 in the UK South region. This VNet is the foundation for networking within Azure.
+* **Subnets**: Creates two subnets within the VNet:
+  * **Public Subnet**: Named public-subnet with an address range of 10.0.1.0/24.
+  * **Private Subnet**: Named private-subnet with an address range of 10.0.2.0/24.
+* **Network Security Groups** (NSGs): Controls access to VMs:
+  * **App VM NSG**: Allows inbound traffic on ports 22 (SSH), 80 (HTTP), and 3000.
+  * **DB VM NSG**: Allows inbound traffic on port 22 (SSH) and port 27017 (MongoDB), while denying all other inbound traffic.
+* **Public IP Address**: Creates a static public IP for the application VM, allowing it to be accessed from the internet.
+* **Network Interface for App VM**: Configures the network interface for the app VM, linking it to the public IP and subnet.
+* **App VM**: Defines the application virtual machine, including its size, admin credentials, and SSH key for secure access.
+* **Network Security Group** (NSG) Association: Associates the network interfaces of both the app and database VMs with their respective NSGs to enforce security rules.
